@@ -61,12 +61,7 @@ pipeline {
       }
     }
     
-    stage('Upload Artifactory'){
-    steps{  
-		  
-		  server.publishBuildInfo buildInfo
-	    }
-    }
+   
     
   }
 }
