@@ -8,26 +8,26 @@ pipeline {
    
   }
   agent any
-  tools {nodejs "node"}
+  
     
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/vinaybp/node-todo-frontend'
+        git 'https://github.com/vinaybp/docker-hello-world-spring-boot'
       }
     }
         
     stage('Build') {
       steps {
-        sh 'npm install'
+        sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       }
     }
      
-    stage('Test') {
+   /* stage('Test') {
       steps {
          sh 'npm test'
       }
-    }
+    }*/
     stage('Building Image'){
       steps{
         script{
